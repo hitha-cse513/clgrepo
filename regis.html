@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+        .form-container h2 {
+            margin-top: 0;
+        }
+        .form-container label {
+            display: block;
+            margin-bottom: 8px;
+        }
+        .form-container input, .form-container select {
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .form-container button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .form-container button:hover {
+            background-color: #0056b3;
+        }
+        .success-message {
+            display: none;
+            color: #28a745;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Event Registration</h2>
+        <form id="registrationForm">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="event">Select Event:</label>
+            <select id="event" name="event" required>
+                <option value="" disabled selected>Select an event</option>
+                <option value="tech_conference">Tech Conference</option>
+                <option value="workshop">Workshop</option>
+                <option value="networking_event">Networking Event</option>
+                <option value="webinar">Webinar</option>
+            </select>
+
+            <button type="submit">Register</button>
+        </form>
+        <div id="successMessage" class="success-message">
+            Registration successful! Thank you for signing up.
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevents the form from submitting the traditional way
+            
+            // Here you would typically handle the form submission with AJAX or fetch
+            
+            // Simulating a successful form submission
+            document.getElementById('successMessage').style.display = 'block';
+            
+            // Optionally, you can reset the form after success
+            document.getElementById('registrationForm').reset();
+        });
+    </script>
+</body>
+</html>
